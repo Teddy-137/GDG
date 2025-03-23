@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block title%}Login-Page{%endblock%}
+
+{%block content%}
+
+
+<div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow">
+                <div class="card-body p-5">
+                    <h3 class="card-title text-center mb-4">Login</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+
+
+
+
