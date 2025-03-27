@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+
+{%block title%}{%endblock%}
+
+{%block content%}
+    <div class="container">
+        <p>Name: {{loan.name}}</p>
+        <p>Loan Amount: {{loan.loan_amount}}</p>
+        <p>Interest Rate: {{loan.interest_rate}}</p>
+        <p>Due Date: {{loan.due_date}}</p>
+    </div>
+    <div>
+        <a href="{%url 'updateview' loan.id%}">update</a>
+    </div>
+{%endblock%}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Loan List
+{% endblock %}
+
+{% block content %}
+    <h2>Loan Details</h2>
+
+    {% if loans %}
+        <table class="loan-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Loan Amount</th>
+                    <th>Interest Rate</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for loan in loans %}
+                    <tr>
+                        <td><a href="{%url 'detailview' loan.id%}">{{ loan.name }}</a></td>
+                        <td>${{ loan.loan_amount }}</td>
+                        <td>{{ loan.interest_rate }}%</td>
+                        <td>{{ loan.due_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No loans found.</p>
+    {% endif %}
+{% endblock %}

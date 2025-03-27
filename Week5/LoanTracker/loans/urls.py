@@ -3,8 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('list', views.listview, name='listview'),
-    path('detail', views.detailview, name='detailview'),
-    path('create', views.createview, name='createview'),
-    path('update', views.updateview, name='updateview'),
+    path('list', views.LoanListView.as_view(), name='listview'),
+    path('detail/<int:pk>', views.LoanDetailView.as_view(), name='detailview'),
+    path('create', views.LoanCreateView.as_view(), name='createview'),
+    path('update/<int:pk>', views.LoanUpdateView.as_view(), name='updateview'),
 ]

@@ -1,15 +1,36 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView
+from .models import Loan
+from .forms import LoanForm
 
 
-def listview(request):
-    return render(request, 'loans/list.html', {})
 
-def detailview(request):
-    return render(request, 'loans/detail.html', {})
+class LoanListView(ListView):
+    model = Loan
+    template_name = 'loans/loan_list.html'
+    context_object_name = 'loans'
 
-def createview(request):
-    return render(request, 'loans/list.html', {})
 
-def updateview(request):
-    return render(request, 'loans/list.html', {})
+
+class LoanDetailView(DetailView):
+    model = Loan
+    template_name = 'loans/loan_detail.html'
+    context_object_name = 'loan'
+    
+    
+    
+class LoanCreateView(CreateView):
+    model = Loan
+    template_name = 'loans/loan_form.html'
+    form_class = LoanForm
+    success_url = '/loans/list'
+
+
+
+class LoanUpdateView(UpdateView):
+    model = Loan
+    template_name = 'loans/loan_form.html'
+    form_class = LoanForm
+    success_url = '/loans/list'
 
