@@ -1,15 +1,21 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 
-{%block title%}{%endblock%}
+{% block title %}
+    Loan Details
+{% endblock %}
 
-{%block content%}
-    <div class="container">
-        <p>Name: {{loan.name}}</p>
-        <p>Loan Amount: {{loan.loan_amount}}</p>
-        <p>Interest Rate: {{loan.interest_rate}}</p>
-        <p>Due Date: {{loan.due_date}}</p>
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Loan Details</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Loan Information</h5>
+                <p class="card-text"><strong>Name:</strong> {{ loan.name }}</p>
+                <p class="card-text"><strong>Loan Amount:</strong> ${{ loan.loan_amount }}</p>
+                <p class="card-text"><strong>Interest Rate:</strong> {{ loan.interest_rate }}%</p>
+                <p class="card-text"><strong>Due Date:</strong> {{ loan.due_date }}</p>
+                <a href="{% url 'updateview' loan.id %}" class="btn btn-primary">Update Loan</a>
+            </div>
+        </div>
     </div>
-    <div>
-        <a href="{%url 'updateview' loan.id%}">update</a>
-    </div>
-{%endblock%}
+{% endblock %}

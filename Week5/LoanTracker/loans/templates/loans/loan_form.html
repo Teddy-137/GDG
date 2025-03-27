@@ -6,13 +6,15 @@
     {% endblock %}
 
 {% block content %}
-    <h2>{% if object.pk %}Edit{% else %}Create{% endif %} Loan</h2>
 
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="form-class">
-            {{form.as_p}}
-        </div>
-        <button type="submit" class="btn-primary">{% if object.pk %}Update{% else %}Create{% endif %} Loan</button>
-    </form>
+    <div class="container mt-5">
+            <h2 class="mb-4">{% if object.pk %}Edit{% else %}Create{% endif %} Loan</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="container mt-5">
+                    {{form.as_p}}
+                </div>
+                <button type="submit" class="btn btn-primary">{% if object.pk %}Update{% else %}Create{% endif %} Loan</button>
+            </form>
+    </div>
 {% endblock %}
